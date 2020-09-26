@@ -1,6 +1,6 @@
 fun main(args: Array<String>){
-    val mikata = Character(name="mikata", usableSkills = arrayOf("punch", "kick"))
-    val teki = Character(name="teki", usableSkills = arrayOf("kick", "punch"))
+    val mikata = Shujinko1(name="mikata", usableSkills = arrayOf("punch", "kick"))
+    val teki = Enemy1(name="teki", usableSkills = arrayOf("kick", "punch"))
     var count = 1
 
     println("${mikata.name} vs ${teki.name}")

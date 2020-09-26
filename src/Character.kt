@@ -21,7 +21,7 @@ abstract class Character(val name:String, val usableSkills:Array<String>){
             println("${enemy.name}の残りhpは${enemy.hp}に、${name}の残りmpは${mp}になった！")
 
             if(enemy.hp <= 30 && enemy.isAlive){             //hpが30以下になったときの追加メッセージ
-                println("${enemy.name}は行き絶え絶えだ。。")
+                println("${enemy.name}は息絶え絶えだ。。")
             }
 
             if (enemy.hp <= 0){             //enemyが死んだときの処理
@@ -35,7 +35,19 @@ abstract class Character(val name:String, val usableSkills:Array<String>){
 class Shujinko1(name:String, usableSkills: Array<String>): Character(name, usableSkills){
     override val hpLimit:Int = 100
     override var hp:Int = 100
+        set(value){     //
+            field = value
+            if(value<=0) isAlive
+        }
     override val mpLimit: Int = 30
     override var mp: Int = 30
+    override val atk: Double = 10.0
+}
+
+class Enemy1(name:String, usableSkills:Array<String>): Character(name, usableSkills){
+    override val hpLimit:Int = 100
+    override var hp:Int = 100
+    override val mpLimit:Int = 100
+    override var mp:Int = 30
     override val atk: Double = 10.0
 }
